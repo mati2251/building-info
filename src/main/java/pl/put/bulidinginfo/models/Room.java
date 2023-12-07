@@ -6,7 +6,7 @@ public class Room extends Location {
     public Float heating;
     public Float lighting;
 
-    Room(Integer id, String name, Float area, Float cube, Float heating, Float lighting) {
+    public Room(Integer id, String name, Float area, Float cube, Float heating, Float lighting) {
         super(id, name);
         this.area = area;
         this.type = Type.ROOM;
