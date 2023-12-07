@@ -16,7 +16,7 @@ public class    BuildingInfoController {
 
     @GetMapping("/area")
     public Float getArea(@RequestBody Location body){
-        logger.info("For body: " + body.name + " area is: " + body.getArea().toString() + " m^2");
+        logger.info("For location: " + body.name + " area is: " + body.getArea().toString() + " m^2");
         return body.getArea();
     }
 
