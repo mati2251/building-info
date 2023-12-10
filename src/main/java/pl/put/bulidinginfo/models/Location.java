@@ -20,6 +20,8 @@ public abstract class Location {
     public String type;
     abstract public Float getArea();
 
+    abstract public Float getCube();
+
     Location(Integer id, String name) {
         this.id = id;
         this.name = name;
