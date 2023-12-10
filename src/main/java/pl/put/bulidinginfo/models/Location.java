@@ -3,6 +3,8 @@ package pl.put.bulidinginfo.models;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
+import java.util.List;
+
 
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
@@ -19,6 +21,9 @@ public abstract class Location {
     public String name;
     public String type;
     abstract public Float getArea();
+    abstract public Float getHeatingPerCubeMeter();
+
+    abstract public List<Location> getLocationsWithHigherHeatingRate(Float thresholdRate);
 
     Location(Integer id, String name) {
         this.id = id;
