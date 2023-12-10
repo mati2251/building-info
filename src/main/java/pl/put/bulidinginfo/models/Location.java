@@ -8,7 +8,6 @@ import java.util.List;
 
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
-    include = JsonTypeInfo.As.PROPERTY,
     property = "type"
 )
 @JsonSubTypes({
@@ -19,8 +18,10 @@ import java.util.List;
 public abstract class Location {
     public Integer id;
     public String name;
-    public String type;
+
+    public Type type;
     abstract public Float getArea();
+
     abstract public Float getHeatingPerCubeMeter();
 
     abstract public List<Location> getLocationsWithHigherHeatingRate(Float thresholdRate);
