@@ -27,6 +27,10 @@ public class RoomCompound extends Location{
     public Float getArea() {
         return this.getLocations().stream().map(Location::getArea).reduce(0f, Float::sum);
     }
-    
+
+    @Override
+    public Float getCube() {
+        return this.getLocations().stream().map(Location::getCube).reduce(0f, Float::sum);
+    }
 }
 

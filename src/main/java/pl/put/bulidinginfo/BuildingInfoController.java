@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @RestController
-public class    BuildingInfoController {
+public class BuildingInfoController {
 
     private static final Logger logger = LoggerFactory.getLogger(BuildingInfoController.class);
 
@@ -20,4 +20,9 @@ public class    BuildingInfoController {
         return body.getArea();
     }
 
+    @GetMapping("/cube")
+    public Float getCube(@RequestBody Location body){
+        logger.info("For location: " + body.name + " cube is: " + body.getCube().toString() + " m^3");
+        return body.getCube();
+    }
 }
