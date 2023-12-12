@@ -4,11 +4,12 @@ public class Room extends Location {
     public Float area;
     public Float cube;
     public Float heating;
-    public Float lighting;
+    public Integer lighting;
 
-    public Room(Integer id, String name, Float area, Float cube, Float heating, Float lighting) {
+    public Room(Integer id, String name, Float area, Float cube, Float heating, Integer lighting) {
         super(id, name);
         this.area = area;
+        this.type = Type.ROOM;
         this.cube = cube;
         this.heating = heating;
         this.lighting = lighting;
