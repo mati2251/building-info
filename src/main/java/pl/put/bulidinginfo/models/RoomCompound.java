@@ -4,7 +4,7 @@ import java.util.List;
 
 public class RoomCompound extends Location{
 
-    RoomCompound(Integer id, String name, Type type, List<Location> locations) {
+    public RoomCompound(Integer id, String name, Type type, List<Location> locations) {
         super(id, name);
         this.locations = locations;
     }
@@ -25,7 +25,7 @@ public class RoomCompound extends Location{
 
     @Override
     public Float getArea() {
-        return this.getLocations().stream().map(location -> location.getArea()).reduce(0f, Float::sum);
+        return this.getLocations().stream().map(Location::getArea).reduce(0f, Float::sum);
     }
     
 }

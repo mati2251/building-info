@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
-    include = JsonTypeInfo.As.PROPERTY,
     property = "type"
 )
 @JsonSubTypes({
@@ -17,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 public abstract class Location {
     public Integer id;
     public String name;
-    public String type;
+    public Type type;
     abstract public Float getArea();
 
     Location(Integer id, String name) {
