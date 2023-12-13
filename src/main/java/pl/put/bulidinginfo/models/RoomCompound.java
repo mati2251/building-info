@@ -34,8 +34,15 @@ public class RoomCompound extends Location{
     }
 
     @Override
+    public Float getHeating() {
+        return this.getLocations().stream().map(Location::getHeating).reduce(0f, Float::sum);
+    }
+
+    @Override
     public Float getHeatingPerCubeMeter() {
-        return this.getLocations().stream().map(Location::getHeatingPerCubeMeter).reduce(0f, Float::sum);
+        Float cube = this.getLocations().stream().map(Location::getCube).reduce(0f, Float::sum);
+        Float heating = this.getLocations().stream().map(Location::getHeating).reduce(0f, Float::sum);
+        return (heating/cube);
     }
 }
 
