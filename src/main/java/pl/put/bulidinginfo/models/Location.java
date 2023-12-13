@@ -21,6 +21,8 @@ public abstract class Location {
 
     abstract public Float getCube();
 
+    abstract public Float getHeatingPerCubeMeter();
+
     Location(Integer id, String name) {
         this.id = id;
         this.name = name;
