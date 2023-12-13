@@ -25,4 +25,7 @@ public class Room extends Location {
 
     @Override
     public Float getHeatingPerCubeMeter() { return (this.heating/this.cube); }
+
+    @Override
+    public Float getHeating() { return this.heating; }
 }

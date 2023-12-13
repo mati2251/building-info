@@ -18,6 +18,12 @@ public class RoomTest {
     }
 
     @Test
+    public void testGetHeating() {
+        Room room = new Room(1, "Room", 10.0f, 30.0f, 30.0f, 0);
+        assertEquals(room.getHeating(), 30.0f);
+    }
+
+    @Test
     public void testGetHeatingPerCubeMeter() {
         Room room = new Room(1, "Room", 10.0f, 30.0f, 30.0f, 0);
         assertEquals(room.getHeatingPerCubeMeter(), 1.0f);
