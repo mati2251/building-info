@@ -21,6 +21,10 @@ public abstract class Location {
 
     abstract public Float getCube();
 
+    abstract public Float getHeating();
+
+    abstract public Float getHeatingPerCubeMeter();
+  
     abstract public int getLighting();
 
     abstract public Float getLightingPower();
