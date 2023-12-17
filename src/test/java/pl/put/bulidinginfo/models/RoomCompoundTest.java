@@ -44,10 +44,7 @@ public class RoomCompoundTest {
         Room room3 = new Room(3, "Room3", 20.0f, 20.0f, 20.0f, 0.0f );
         RoomCompound floor = new RoomCompound(3, "Floor", Type.FLOOR, List.of(room, room2, room3));
 
-        Exception exception = assertThrows(UnsupportedOperationException.class, () -> {
-            floor.getLocationsWithHigherHeatingRate(20.0f);
-        });
-        assertEquals("This method cannot be used on this object. This method is only used on the BUILDING object.", exception.getMessage());
+        assertEquals(floor.getLocationsWithHigherHeatingRate(1.0f), List.of(room, room2));
 
     }
 

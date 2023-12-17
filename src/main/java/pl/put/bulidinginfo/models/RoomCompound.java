@@ -45,17 +45,9 @@ public class RoomCompound extends Location {
 
     @Override
     public List<Location> getLocationsWithHigherHeatingRate(Float thresholdRate) {
-        if (getType() != Type.BUILDING) {
-            throw new UnsupportedOperationException("This method cannot be used on this object. This method is only used on the BUILDING object.");
-        }
-
         List<Location> filteredLocations = new ArrayList<>();
-        for (Location floor : getLocations()) {
-            if (floor instanceof RoomCompound) {
-                for (Location room : ((RoomCompound) floor).getLocations()) {
-                    filteredLocations.addAll(room.getLocationsWithHigherHeatingRate(thresholdRate));
-                }
-            }
+        for (Location location : getLocations()) {
+            filteredLocations.addAll(location.getLocationsWithHigherHeatingRate(thresholdRate));
         }
         return filteredLocations;
     }
