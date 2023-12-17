@@ -35,12 +35,32 @@ public class RoomCompound extends Location {
 
     @Override
     public Float getArea() {
-        return this.getLocations().stream().map(location -> location.getArea()).reduce(0f, Float::sum);
+        return this.getLocations().stream().map(Location::getArea).reduce(0f, Float::sum);
+    }
+
+    @Override
+    public Float getCube() {
+        return this.getLocations().stream().map(Location::getCube).reduce(0f, Float::sum);
+    }
+
+    @Override
+    public Float getHeating() {
+        return this.getLocations().stream().map(Location::getHeating).reduce(0f, Float::sum);
     }
 
     @Override
     public Float getHeatingPerCubeMeter() {
-        throw new UnsupportedOperationException("This method cannot be used on BUNCH OF ROOMS objects. This method is only used on the SINGLE ROOM object.");
+        return (this.getHeating()/this.getCube());
+    }
+
+    @Override
+    public int getLighting() {
+        return this.getLocations().stream().map(Location::getLighting).reduce(0, Integer::sum);
+    }
+
+    @Override
+    public Float getLightingPower() {
+        return (this.getLighting()/this.getArea());
     }
 
     @Override

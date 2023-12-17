@@ -18,11 +18,18 @@ import java.util.List;
 public abstract class Location {
     public Integer id;
     public String name;
-
     public Type type;
     abstract public Float getArea();
 
+    abstract public Float getCube();
+
+    abstract public Float getHeating();
+
     abstract public Float getHeatingPerCubeMeter();
+
+    abstract public int getLighting();
+
+    abstract public Float getLightingPower();
 
     abstract public List<Location> getLocationsWithHigherHeatingRate(Float thresholdRate);
 
