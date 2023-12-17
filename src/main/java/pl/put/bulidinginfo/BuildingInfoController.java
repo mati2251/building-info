@@ -28,9 +28,22 @@ public class BuildingInfoController {
         logger.info("For location: " + body.name + " cube is: " + body.getCube().toString() + " m^3");
         return body.getCube();
     }
+
     @GetMapping("/heating-per-cube-meter")
     public List<Location> getLocationsWithHigherHeatingRate(@RequestBody Location body, @RequestParam Float thresholdRate){
         logger.info("List of locations that have higher rate: " + body.getLocationsWithHigherHeatingRate(thresholdRate).toString());
         return body.getLocationsWithHigherHeatingRate(thresholdRate);
+    }
+
+    @GetMapping("/heating-consumption")
+    public Float getHeatingPerCube(@RequestBody Location body){
+        logger.info("For location: " + body.name  + " heating consumption is: " + body.getHeatingPerCubeMeter().toString() + " W/m^3");
+        return body.getHeatingPerCubeMeter();
+    }
+
+    @GetMapping("/lighting-power")
+    public Float getLightingPower(@RequestBody Location body){
+        logger.info("For location: " + body.name  + " lighting power is: " + body.getHeatingPerCubeMeter().toString() + " W/m^2");
+        return body.getLightingPower();
     }
 }
