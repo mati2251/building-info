@@ -22,4 +22,10 @@ public class Room extends Location {
 
     @Override
     public Float getCube() { return this.cube; }
+
+    @Override
+    public int getLighting() { return this.lighting; }
+
+    @Override
+    public Float getLightingPower() { return (this.lighting/this.area); }
 }

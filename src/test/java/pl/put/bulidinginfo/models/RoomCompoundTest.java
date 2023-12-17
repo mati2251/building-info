@@ -28,6 +28,47 @@ public class RoomCompoundTest {
     }
 
     @Test
+    public void testGetLightingForFloor() {
+        Room room = new Room(1, "Room", 10.0f, 30.0f, 0.0f, 10);
+        Room room2 = new Room(2, "Room2", 20.0f, 40.0f, 0.0f, 20);
+        RoomCompound floor = new RoomCompound(3, "Floor", Type.FLOOR, List.of(room, room2));
+        assertEquals(floor.getLighting(), 30);
+    }
+
+    @Test
+    public void testGetLightingForBuilding(){
+        Room room = new Room(1, "Room", 10.0f, 40.0f, 0.0f, 10);
+        Room room2 = new Room(2, "Room2", 20.0f, 40.0f, 0.0f, 20);
+        RoomCompound floor = new RoomCompound(3, "Floor", Type.FLOOR, List.of(room, room2));
+        Room room3 = new Room(4, "Room3", 30.0f, 20.0f, 0.0f, 30);
+        Room room4 = new Room(5, "Room4", 40.0f, 30.0f, 0.0f, 40);
+        RoomCompound floor2 = new RoomCompound(6, "Floor2", Type.FLOOR, List.of(room3, room4));
+        RoomCompound building = new RoomCompound(7, "Building", Type.BUILDING, List.of(floor, floor2));
+        assertEquals(building.getLighting(), 100);
+    }
+
+    @Test
+    public void testGetLightingPowerForFloor() {
+        Room room = new Room(1, "Room", 10.0f, 30.0f, 0.0f, 30);
+        Room room2 = new Room(2, "Room2", 20.0f, 40.0f, 0.0f, 90);
+        RoomCompound floor = new RoomCompound(3, "Floor", Type.FLOOR, List.of(room, room2));
+        assertEquals(floor.getLightingPower(), 4.0f);
+    }
+
+    @Test
+    public void testGetLightingPowerForBuilding(){
+        Room room = new Room(1, "Room", 10.0f, 40.0f, 0.0f, 100);
+        Room room2 = new Room(2, "Room2", 20.0f, 40.0f, 0.0f, 50);
+        RoomCompound floor = new RoomCompound(3, "Floor", Type.FLOOR, List.of(room, room2));
+        Room room3 = new Room(4, "Room3", 30.0f, 20.0f, 0.0f, 300);
+        Room room4 = new Room(5, "Room4", 40.0f, 30.0f, 0.0f, 30);
+        RoomCompound floor2 = new RoomCompound(6, "Floor2", Type.FLOOR, List.of(room3, room4));
+        RoomCompound building = new RoomCompound(7, "Building", Type.BUILDING, List.of(floor, floor2));
+        assertEquals(building.getLightingPower(), 4.8f);
+    }
+
+
+    @Test
     public void testGetCubeForFloor() {
         Room room = new Room(1, "Room", 10.0f, 30.0f, 0.0f, 0);
         Room room2 = new Room(2, "Room2", 20.0f, 40.0f, 0.0f, 0);

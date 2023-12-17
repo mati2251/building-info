@@ -21,6 +21,10 @@ public abstract class Location {
 
     abstract public Float getCube();
 
+    abstract public int getLighting();
+
+    abstract public Float getLightingPower();
+
     Location(Integer id, String name) {
         this.id = id;
         this.name = name;
