@@ -5,14 +5,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class RoomCompound extends Location{
+public class RoomCompound extends Location {
 
     public RoomCompound(Integer id, String name, Type type, List<Location> locations) {
         super(id, name);
         this.locations = locations;
         this.type = type;
     }
-    
+
     private List<Location> locations;
 
     private Type type;
@@ -29,7 +29,9 @@ public class RoomCompound extends Location{
         return locations;
     }
 
-    public Type getType() { return this.type; }
+    public Type getType() {
+        return this.type;
+    }
 
     @Override
     public Float getArea() {
@@ -51,13 +53,12 @@ public class RoomCompound extends Location{
         for (Location floor : getLocations()) {
             if (floor instanceof RoomCompound) {
                 for (Location room : ((RoomCompound) floor).getLocations()) {
-                    if (room.getHeatingPerCubeMeter() > thresholdRate) {
-                        filteredLocations.add(room);
-                    }
+                    filteredLocations.addAll(room.getLocationsWithHigherHeatingRate(thresholdRate));
                 }
             }
         }
         return filteredLocations;
     }
+
 }
 

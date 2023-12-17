@@ -1,5 +1,6 @@
 package pl.put.bulidinginfo.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Room extends Location {
@@ -26,6 +27,10 @@ public class Room extends Location {
 
     @Override
     public List<Location> getLocationsWithHigherHeatingRate(Float thresholdRate) {
-        throw new UnsupportedOperationException("This method cannot be used on ROOM object. This method is only used on the BUNCH OF ROOMS objects.");
+        List<Location> locations = new ArrayList<>();
+        if (this.getHeatingPerCubeMeter() > thresholdRate) {
+            locations.add(this);
+        }
+        return locations;
     }
 }
