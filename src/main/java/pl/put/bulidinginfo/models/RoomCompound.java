@@ -1,15 +1,21 @@
 package pl.put.bulidinginfo.models;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class RoomCompound extends Location{
+public class RoomCompound extends Location {
 
     public RoomCompound(Integer id, String name, Type type, List<Location> locations) {
         super(id, name);
         this.locations = locations;
+        this.type = type;
     }
-    
+
     private List<Location> locations;
+
+    private Type type;
 
     public void addLocation(Location location) {
         locations.add(location);
@@ -21,6 +27,10 @@ public class RoomCompound extends Location{
 
     public List<Location> getLocations() {
         return locations;
+    }
+
+    public Type getType() {
+        return this.type;
     }
 
     @Override
@@ -42,7 +52,7 @@ public class RoomCompound extends Location{
     public Float getHeatingPerCubeMeter() {
         return (this.getHeating()/this.getCube());
     }
-  
+
     @Override
     public int getLighting() {
         return this.getLocations().stream().map(Location::getLighting).reduce(0, Integer::sum);
@@ -52,5 +62,15 @@ public class RoomCompound extends Location{
     public Float getLightingPower() {
         return (this.getLighting()/this.getArea());
     }
+
+    @Override
+    public List<Location> getLocationsWithHigherHeatingRate(Float thresholdRate) {
+        List<Location> filteredLocations = new ArrayList<>();
+        for (Location location : getLocations()) {
+            filteredLocations.addAll(location.getLocationsWithHigherHeatingRate(thresholdRate));
+        }
+        return filteredLocations;
+    }
+
 }
 

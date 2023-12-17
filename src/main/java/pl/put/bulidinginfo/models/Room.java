@@ -1,5 +1,8 @@
 package pl.put.bulidinginfo.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Room extends Location {
     public Float area;
     public Float cube;
@@ -28,10 +31,19 @@ public class Room extends Location {
 
     @Override
     public Float getHeating() { return this.heating; }
-    
+
     @Override
     public int getLighting() { return this.lighting; }
 
     @Override
     public Float getLightingPower() { return (this.lighting/this.area); }
+
+    @Override
+    public List<Location> getLocationsWithHigherHeatingRate(Float thresholdRate) {
+        List<Location> locations = new ArrayList<>();
+        if (this.getHeatingPerCubeMeter() > thresholdRate) {
+            locations.add(this);
+        }
+        return locations;
+    }
 }

@@ -1,7 +1,7 @@
 package pl.put.bulidinginfo.models;
 
 import org.junit.jupiter.api.Test;
-
+import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RoomTest {
@@ -28,7 +28,7 @@ public class RoomTest {
         Room room = new Room(1, "Room", 10.0f, 30.0f, 30.0f, 0);
         assertEquals(room.getHeatingPerCubeMeter(), 1.0f);
     }
-    
+
     @Test
     public void testGetLighting() {
         Room room = new Room(1, "Room", 10.0f, 0.0f, 0.0f, 1000);
@@ -40,5 +40,13 @@ public class RoomTest {
         Room room = new Room(1, "Room", 10.0f, 0.0f, 0.0f, 1000);
         assertEquals(room.getLightingPower(), 100.0f);
     }
+
+    @Test
+    public void testGetLocationsWithHigherHeatingRateForRoom() {
+        Room room = new Room(1, "Room", 10.0f, 10.0f, 30.0f, 0);
+        assertEquals(room.getLocationsWithHigherHeatingRate(1.0f), List.of(room));
+
+    }
+
 
 }
