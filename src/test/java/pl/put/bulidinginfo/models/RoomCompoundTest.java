@@ -132,7 +132,7 @@ public class RoomCompoundTest {
     public void testGetLocationsWithHigherHeatingRateForFloor() {
         Room room = new Room(1, "Room", 10.0f, 10.0f, 30.0f, 0);
         Room room2 = new Room(2, "Room2", 20.0f, 20.0f, 21.0f, 0);
-        Room room3 = new Room(3, "Room3", 20.0f, 20.0f, 20.0f, 0;
+        Room room3 = new Room(3, "Room3", 20.0f, 20.0f, 20.0f, 0);
         RoomCompound floor = new RoomCompound(3, "Floor", Type.FLOOR, List.of(room, room2, room3));
 
         assertEquals(floor.getLocationsWithHigherHeatingRate(1.0f), List.of(room, room2));
