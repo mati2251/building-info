@@ -28,4 +28,17 @@ public class RoomTest {
         Room room = new Room(1, "Room", 10.0f, 30.0f, 30.0f, 0);
         assertEquals(room.getHeatingPerCubeMeter(), 1.0f);
     }
+    
+    @Test
+    public void testGetLighting() {
+        Room room = new Room(1, "Room", 10.0f, 0.0f, 0.0f, 1000);
+        assertEquals(room.getLighting(), 1000);
+    }
+
+    @Test
+    public void testGetLightingPower() {
+        Room room = new Room(1, "Room", 10.0f, 0.0f, 0.0f, 1000);
+        assertEquals(room.getLightingPower(), 100.0f);
+    }
+
 }
