@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @AutoConfiguration
-public class BulidingInfoApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(BulidingInfoApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
 }
