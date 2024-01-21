@@ -1,6 +1,5 @@
 package pl.put.bulidinginfo;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -51,7 +50,7 @@ public class BuildingInfoController {
     @CrossOrigin
     @PostMapping("/lighting-power")
     public Float getLightingPower(@RequestBody Location body){
-        logger.info("For location: " + body.name  + " lighting power is: " + body.getHeatingPerCubeMeter().toString() + " W/m^2");
+        logger.info("For location: " + body.name  + " lighting power is: " + body.getLightingPower().toString() + " W/m^2");
         return body.getLightingPower();
     }
 }
