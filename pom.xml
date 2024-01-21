@@ -10,7 +10,7 @@
     </parent>
     <groupId>pl.put</groupId>
     <artifactId>buliding-info</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <name>buliding-info</name>
     <description>buliding-info</description>
     <properties>
